@@ -1,0 +1,34 @@
+# For url mapping
+RewriteEngine On
+
+# In case your app is found in a folder, use RewriteBase /path/to/folder/
+RewriteBase /f3/
+
+# This is to redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+
+# Again, in case your app is found in a folder, use /path/to/folder/index.php
+RewriteRule .* /f3/index.php [L,QSA]
+
+# Note, if you still receive 404s
+# Go to /etc/apache2/apache2.conf
+#
+##################### Change
+#
+# <Directory /var/www/>
+#	...
+#	AllowOverride None
+#	...
+# </Directory>
+#
+##################### To
+#
+# <Directory /var/www/>
+#	...
+#	AllowOverride All
+#	...
+# </Directory>
+#
+###################### And run "service apache2 reload"
