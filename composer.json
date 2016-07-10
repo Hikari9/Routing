@@ -1,6 +1,6 @@
 {
 	"require": {
-		"symphony/routing": "^3.1.2"
+		"bcosca/fatfree": "*"
 	},
 	"config": {
 		"vendor-dir": "lib"
